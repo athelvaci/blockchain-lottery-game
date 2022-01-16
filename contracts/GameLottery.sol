@@ -5,7 +5,6 @@ contract GameLottery {
     struct Ticket {
         address ownerAddress;
         bytes32 hash;
-        uint number;
         bool isRevealed;
     }
 
@@ -42,7 +41,6 @@ contract GameLottery {
         Ticket memory ticket = Ticket({
             ownerAddress : msg.sender,
             hash : hash,
-            number : 0,
             isRevealed : false
             });
         committedTickets[hash] = ticket;
@@ -59,7 +57,6 @@ contract GameLottery {
         require(ticket.ownerAddress != address(0));
         require(ticket.isRevealed == false);
 
-        ticket.number = secretNumber;
         ticket.isRevealed = true;
 
         seed = keccak256(seed, secretNumber);
@@ -98,5 +95,4 @@ contract GameLottery {
     function getNumberOfRevealedTickets() public constant returns (uint){
         return revealedTickets.length;
     }
-
 }

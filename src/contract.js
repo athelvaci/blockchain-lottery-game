@@ -1,6 +1,6 @@
 import web3 from './web3'
 
-const contract = '0xdF593D5E068B05962D1b977Cd3114f8cbEb117cA';
+const contract = '0x08C3E1259A8436D9252c4d5F96286Ebd9b9Ccd94';
 
 const abi = [
     {
@@ -20,10 +20,6 @@ const abi = [
             {
                 "name": "hash",
                 "type": "bytes32"
-            },
-            {
-                "name": "number",
-                "type": "uint256"
             },
             {
                 "name": "isRevealed",
@@ -65,10 +61,6 @@ const abi = [
             {
                 "name": "hash",
                 "type": "bytes32"
-            },
-            {
-                "name": "number",
-                "type": "uint256"
             },
             {
                 "name": "isRevealed",
