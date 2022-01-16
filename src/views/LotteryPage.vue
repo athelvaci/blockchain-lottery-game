@@ -55,7 +55,7 @@
 
                         <div id="withdrawPrize" v-if="isCurrentUserWinner()">
                             <b-form class="mt-4">
-                                <label>CONGRATS!!! You are the WINNER! You won <b>ETH: {{totalPrize}} </b></label>
+                                <label>CONGRATS!!! You are the WINNER! You won <b> {{totalPrize}} ETH </b></label>
                                 <b-button block variant="success" @click.prevent="withdrawPrize()"
                                           :disabled="!isCurrentUserWinner()">Claim your prize
                                     <b-spinner label="Loading..." small v-show="loading3==true"></b-spinner>
@@ -65,8 +65,8 @@
                     </b-col>
                     <b-col cols="6" md="5">
                         <h4>Lottery info</h4>
-                        <p>Total Amount in the pool: ETH
-                            <b-badge variant="success">{{balance - totalPrize}}</b-badge>
+                        <p>Total Amount in the pool:
+                            <b-badge variant="success">{{balance - totalPrize}} ETH</b-badge>
                         </p>
                         <b-alert variant="primary" show><small>
                             <b-icon icon="star-fill" variant="warning"></b-icon>
@@ -94,8 +94,8 @@
                     </b-col>
                     <b-col cols="6" md="4">Contract Details
                         <b-card>
-                            <p>Your Current balance is <br>ETH:
-                                <b-badge variant="success">{{userBalance}}</b-badge>
+                            <p>Your Current balance is <br>
+                                <b-badge variant="success">{{userBalance}} ETH</b-badge>
                             </p>
                             <p>Your Account Address is:
                                 <b-alert variant="success" show>{{ userAccount }}
