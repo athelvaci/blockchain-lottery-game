@@ -34,11 +34,11 @@ contract GameLottery {
         manager = msg.sender;
     }
 
-    function createCommitment(uint N) public payable {//purchaseTicket
+    function createCommitment(uint secretNumber) public payable {
         require(msg.value == TICKET_PRICE);
         require(block.number <= ticketDeadline);
 
-        bytes32 hash = keccak256(msg.sender, N);
+        bytes32 hash = keccak256(msg.sender, secretNumber);
         Ticket memory ticket = Ticket({
             ownerAddress : msg.sender,
             hash : hash,
@@ -50,19 +50,19 @@ contract GameLottery {
     }
 
 
-    function reveal(uint N) public {
+    function reveal(uint secretNumber) public {
         require(block.number > ticketDeadline);
         require(block.number <= revealDeadline);
-        bytes32 hash = keccak256(msg.sender, N);
+        bytes32 hash = keccak256(msg.sender, secretNumber);
         Ticket storage ticket = committedTickets[hash];
 
         require(ticket.ownerAddress != address(0));
         require(ticket.isRevealed == false);
 
-        ticket.number = N;
+        ticket.number = secretNumber;
         ticket.isRevealed = true;
 
-        seed = keccak256(seed, N);
+        seed = keccak256(seed, secretNumber);
         revealedTickets.push(ticket);
     }
 
@@ -98,6 +98,5 @@ contract GameLottery {
     function getNumberOfRevealedTickets() public constant returns (uint){
         return revealedTickets.length;
     }
-
 
 }

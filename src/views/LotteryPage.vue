@@ -10,10 +10,11 @@
                                 <h4>Want to try your luck?</h4>
                                 <p>Quick! Less than <b>{{(numOfBlockLeftForCommitment() + 1) * 15}} seconds </b> left
                                     to buy a ticket.</p>
-                                <label>Enter the number</label>
+                                <label>To join Lottery please enter your secret number. You will use this number to reveal your ticket.</label>
+                                <label><b>Don't forget your number!</b></label>
                                 <b-input type="number" id="revealNumber" aria-describedby="revealNumber"
                                          v-model="revealNumber"
-                                         placeholder="Enter your number"></b-input>
+                                         placeholder="Enter number here"></b-input>
                                 <span class="text-muted"><small><i>Ticket price = <b>0.01 ETH</b></i></small></span>
                                 <div class="d-flex justify-content-end flex-column">
                                     <b-button variant="primary" size="sm" class="mt-2 mb-2 text-white"
@@ -26,7 +27,7 @@
 
                             <label v-if="!isInReveal() && isInCommitment()">Reveal Process is not started yet. It will
                                 start in
-                                {{numOfBlockLeftForCommitment()*15}} seconds.</label>
+                                {{(numOfBlockLeftForCommitment()+1)*15}} seconds.</label>
                             <div id="revealDiv" v-if="isInReveal()">
                                 <label v-if="isInReveal()">Reveal your number</label>
                                 <p>Quick only <b>{{(numOfBlockLeftForReveal() + 1) * 15}} seconds</b> left to reveal

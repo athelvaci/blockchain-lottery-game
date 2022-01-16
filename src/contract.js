@@ -1,6 +1,6 @@
 import web3 from './web3'
 
-const contract = '0x7268fD0a18cAd57A5D029857f46F4EB40B05f310';
+const contract = '0xdF593D5E068B05962D1b977Cd3114f8cbEb117cA';
 
 const abi = [
     {
@@ -204,7 +204,7 @@ const abi = [
         "constant": false,
         "inputs": [
             {
-                "name": "N",
+                "name": "secretNumber",
                 "type": "uint256"
             }
         ],
@@ -232,7 +232,7 @@ const abi = [
         "constant": false,
         "inputs": [
             {
-                "name": "N",
+                "name": "secretNumber",
                 "type": "uint256"
             }
         ],
