@@ -49,7 +49,7 @@
 
                         <b-form class="mt-4" v-if="isInPickAWinner()">
                             <b-button id="getWinnerButton" block variant="success" @click.prevent="getWinner()"
-                                      :disabled="userAccount!==manager && isInPickAWinner()">Pick a Winner
+                                      :disabled="isInPickAWinner()">Pick a Winner
                                 <b-spinner label="Loading..." small v-show="loading2==true"></b-spinner>
                             </b-button>
                         </b-form>
